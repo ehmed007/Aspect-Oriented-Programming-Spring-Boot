@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ProductService {
     public Product save(Product product);
-    public Boolean delete(Integer productId);
+    public Boolean deleteAll();
 }
