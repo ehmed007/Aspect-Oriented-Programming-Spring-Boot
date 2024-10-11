@@ -15,26 +15,30 @@ public class ProductAspect {
 
     private Logger logger = LoggerFactory.getLogger(Product.class);
 
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
+
     @Before("execution(* com.example.Aspect.Oriented.Programming.Services.ProductServiceImplementation.save(..))")
     public void runBeforeProudctAdd() {
-        logger.info("Product are now going to be Added........");
+        logger.info(ANSI_GREEN +"Product are now going to be Added........"+ ANSI_RESET);
     }
 
     @After("execution(* com.example.Aspect.Oriented.Programming.Services.ProductServiceImplementation.save(..))")
     public void runAfterProudctAdd() {
-        logger.info("Product Added Successfully");
+        logger.info(ANSI_GREEN +"Product Added Successfully"+ ANSI_RESET);
     }
 
 
 
     @Before("execution(* com.example.Aspect.Oriented.Programming.Services.ProductServiceImplementation.deleteAll(..))")
     public void runBeforeProudctDelete() {
-        logger.error("Product are now going to be Deleted........");
+        logger.error(ANSI_RED +"Product are now going to be Deleted........"+ ANSI_RESET);
     }
 
     @After("execution(* com.example.Aspect.Oriented.Programming.Services.ProductServiceImplementation.deleteAll(..))")
     public void runAfterProudctDelete() {
-        logger.error("Product Deleted Successfully");
+        logger.error(ANSI_RED +"Product Deleted Successfully"+ ANSI_RESET);
     }
 
 }
